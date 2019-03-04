@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import shared.DataSet;
 import shared.DataSetDescription;
 import shared.Instance;
+import util.linalg.DenseVector;
 /**
  * Class to read in data from a ARFF file
  * @author Jarvis Johnson <https://github.com/Magicjarvis>
@@ -103,7 +104,7 @@ public class ArffDataSetReader extends DataSetReader {
 	                }
 					ins[i] = d;
 				}
-				Instance i = new Instance(ins);
+				Instance i = new Instance(new DenseVector(Arrays.copyOfRange(ins, 0, ins.length - 1)), new Instance(ins[ins.length - 1]));
 				instances.add(i);
 			}
 			line = in.readLine();
