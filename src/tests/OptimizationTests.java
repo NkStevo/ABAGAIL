@@ -84,7 +84,7 @@ public class OptimizationTests {
 	        testInstances = testing.getInstances();
 	        inputLayer = instances[0].getData().size() - 1;
 	        hiddenLayer = Integer.parseInt(args[0]);
-	        trainingIterations = 150;
+	        trainingIterations = Integer.parseInt(args[1]);
 	
 	        nn = factory.createClassificationNetwork(
 	                new int[]{inputLayer, hiddenLayer, outputLayer});
